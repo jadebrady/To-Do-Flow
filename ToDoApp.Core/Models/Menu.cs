@@ -9,10 +9,11 @@ public class Menu
     {
         Console.WriteLine("1. Add Task");
         Console.WriteLine("2. View Tasks");
-        Console.WriteLine("3. Edit Task");
-        Console.WriteLine("4. Delete Task");
-        Console.WriteLine("5. Mark a task as completed");
-        Console.WriteLine("6. Exit");
+        Console.WriteLine("3. View Incomplete Tasks");
+        Console.WriteLine("4. Edit Task");
+        Console.WriteLine("5. Delete Task");
+        Console.WriteLine("6. Mark a task as completed");
+        Console.WriteLine("7. Exit");
         Console.Write("Select an option: ");
         string? choice = Console.ReadLine();
 
@@ -26,15 +27,18 @@ public class Menu
                 newTask.ViewTasks();
                 break;
             case "3":
-                newTask.EditTask();
+                newTask.ViewIncompleteTasks();
                 break;
             case "4":
-                newTask.DeleteTask();
+                newTask.EditTask();
                 break;
             case "5":
+                newTask.DeleteTask();
+                break;
+            case "6":
                 newTask.MarkTaskAsCompleted();
                 break;  
-            case "6":
+            case "7":
                 Console.WriteLine("Exiting the application. Goodbye!");
                 return false;
             default:

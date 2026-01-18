@@ -1,3 +1,6 @@
+using System.Xml.Serialization;
+using System.Linq;
+
 public class TaskList
 {
     public int Id { get; set; }
@@ -114,6 +117,16 @@ public class TaskList
     public void ViewTasks()
     {
         foreach (var task in TaskList.ActualTaskList)
+        {
+            Console.WriteLine($"{task.Id}:\t Task: {task.Title}\t Created At: {task.CreatedAt}\t Due Date: {task.DueDate}\t Completed: {task.IsCompleted}");
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------");
+        }
+    }
+
+    public void ViewIncompleteTasks()
+    {
+        var incompleteTasks = TaskList.ActualTaskList.Where(t => !t.IsCompleted).ToList();
+        foreach (var task in incompleteTasks)
         {
             Console.WriteLine($"{task.Id}:\t Task: {task.Title}\t Created At: {task.CreatedAt}\t Due Date: {task.DueDate}\t Completed: {task.IsCompleted}");
             Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------");
