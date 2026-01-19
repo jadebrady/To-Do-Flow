@@ -13,8 +13,9 @@ namespace ToDoApp.Core.Models
         public DateTime? DueDate { get; set; }
         public bool IsCompleted { get; set; }
         public static List<TaskList> ActualTaskList { get; set; } = new List<TaskList>();
-
-
+        public DbContextOptions<ToDoDbContext> options = new DbContextOptionsBuilder<ToDoDbContext>()
+        .UseSqlite("Data Source=C:\\Users\\jadeb\\Documents\\To-Do-Flow\\To-Do-Flow\\ToDoApp.Data\\ToDoDB.db")
+        .Options;
         public TaskList(int id, string title, DateTime createdAt, DateTime? dueDate = null, bool isCompleted = false)
         {
             Id = id;
@@ -27,7 +28,7 @@ namespace ToDoApp.Core.Models
 
         public void AddTask()
         {
-            using var db = new ToDoDbContext();
+            ToDoDbContext db = new ToDoDbContext(options);
             Console.WriteLine("\nEnter task:\n");
             Title = Console.ReadLine() ?? "";
             CreatedAt = DateTime.Now;
@@ -40,7 +41,7 @@ namespace ToDoApp.Core.Models
 
         public void EditTask()
         {
-            using var db = new ToDoDbContext();
+            ToDoDbContext db = new ToDoDbContext(options);
             if (db.ToDoList.Count() == 0)
             {
                 Console.WriteLine("\nNo tasks available to edit.\n");
@@ -92,7 +93,7 @@ namespace ToDoApp.Core.Models
 
         public void DeleteTask()
         {
-            using var db = new ToDoDbContext();
+            ToDoDbContext db = new ToDoDbContext(options);
             if (db.ToDoList.Count() == 0)
             {
                 Console.WriteLine("\nNo tasks available to delete.\n");
@@ -119,7 +120,7 @@ namespace ToDoApp.Core.Models
 
         public void MarkTaskAsCompleted()
         {
-            using var db = new ToDoDbContext();
+            ToDoDbContext db = new ToDoDbContext(options);
             if (db.ToDoList.Count() == 0)
             {
                 Console.WriteLine("\nNo tasks available to mark as complete.\n");
@@ -146,7 +147,7 @@ namespace ToDoApp.Core.Models
 
         public void ViewTasks()
         {
-            using var db = new ToDoDbContext();
+            ToDoDbContext db = new ToDoDbContext(options);
             if (db.ToDoList.Count() == 0)
             {
                 Console.WriteLine("\nNo tasks available to view.\n");
@@ -162,7 +163,7 @@ namespace ToDoApp.Core.Models
 
         public void ViewIncompleteTasks()
         {
-            using var db = new ToDoDbContext();
+            ToDoDbContext db = new ToDoDbContext(options);
             if (db.ToDoList.Count() == 0)
             {
                 Console.WriteLine("\nNo tasks available to view.\n");
