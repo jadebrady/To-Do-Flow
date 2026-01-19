@@ -1,12 +1,15 @@
-public class ConsoleApp
+namespace ToDoApp.Core.Models
 {
-    public void Run()
+    public class ConsoleApp
     {
-        Menu.DisplayHeader();
-        bool keepRunning = true;
-        while (keepRunning)
+        public void Run()
         {
-            keepRunning = Menu.DisplayMainMenu();
+            Menu.DisplayHeader();
+            bool keepRunning = true;
+            while (keepRunning)
+            {
+                keepRunning = Menu.DisplayMainMenu();
+            }
         }
     }
 }

@@ -4,12 +4,6 @@
         {
             "previewLimit": 50,
             "driver": "SQLite",
-            "database": "tasks.db",
-            "name": "ToDo SQLite"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
             "name": "TODOAPP",
             "database": "${workspaceFolder:To-Do-Flow}/ToDoApp.Data/ToDoDB.db"
         }
