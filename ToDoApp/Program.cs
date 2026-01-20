@@ -2,7 +2,7 @@
 using ToDoApp.Core.Models;
 using ToDoApp.Data;
 
-namespace ToDoApp.API
+namespace ToDoApp
 {
     class Program
     {

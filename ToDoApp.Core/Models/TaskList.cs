@@ -13,8 +13,7 @@ namespace ToDoApp.Core.Models
         public DateTime? DueDate { get; set; }
         public bool IsCompleted { get; set; }
         public static List<TaskList> ActualTaskList { get; set; } = new List<TaskList>();
-
-
+        
         public TaskList(int id, string title, DateTime createdAt, DateTime? dueDate = null, bool isCompleted = false)
         {
             Id = id;
