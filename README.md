@@ -1,5 +1,5 @@
 # To-Do-Flow
-Full Stack To-do App:  C#/.NET Back-End, SQL Database, Javascript Front-End, deployed on Azure
+To-do Console App:  C#/.NET Back-End, MySQL Database
 
 # Instructions
 To run the program 
